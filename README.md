@@ -16,9 +16,13 @@ Une application mobile pour centraliser les fiches de personnages des joueurs et
 └── Connexion
     ├── Interface MJ
     │   ├── Liste des campagnes en cours
-    │   │   ├── Scénario
-    │   │   ├── Logs des dernières sessions
-    │   │   └── Notes diverses
+    │   │   ├── Interface Notes
+    │   │   │   ├── Scénario
+    │   │   │   ├── Logs des dernières sessions
+    │   │   │   └── Notes diverses
+    │   │   └── Interface session
+    │   │       ├── Scan QR code joueur
+    │   │       └── Selectionner Carte à afficher
     │   └── Outil de dessin
     │       ├── Libre
     │       └── Sur cadrillage
@@ -29,13 +33,23 @@ Une application mobile pour centraliser les fiches de personnages des joueurs et
             └── Notes
 ```
 
+## Idées
+
+- Le MJ envoit une invitation aux joueurs de la session, sous forme de mail par exemple, afin de planifier une session -> s'ajoute sur le calendrier
+- Le MJ invite les joueurs grâce au QR code trouvé sur la fiche perso
+- lancé de dés
+
 <!-- 
 # Connexion
 ## Interface MJ
 ### Liste des campagnes en cours
-#### Scénario
-#### Logs des dernières sessions
-#### Notes diverses
+#### Interface Notes
+##### Scénario
+##### Logs des dernières sessions
+##### Notes diverses
+#### Interface session
+##### Scan QR code joueur
+##### Selectionner Carte à afficher
 ### Outil de dessin
 #### Libre
 #### Sur cadrillage

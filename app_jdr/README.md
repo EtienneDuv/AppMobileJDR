@@ -2,6 +2,7 @@
 
 ## Flutter cheat sheet
 Lister emulateurs: `C:\Users\Adalon\AppData\Local\Android\Sdk\tools\bin > avdmanager list avd` ou `> flutter emulator avd`
+
 Lancer emulateur: `flutter emulator --launch [avd]`
 
 Une [cheat sheet](https://medium.com/@mx_tino/flutter-cheatsheet-ee46128ba626)
