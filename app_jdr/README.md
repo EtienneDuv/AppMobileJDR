@@ -1,7 +1,7 @@
 # app_jdr
 
 ## Flutter cheat sheet
-Lister emulateurs: `C:\Users\Adalon\AppData\Local\Android\Sdk\tools\bin > avdmanager list avd` ou `> flutter emulator avd`
+Lister emulateurs: `C:\Users\Adalon\AppData\Local\Android\Sdk\tools > emulator -list-avds` ou `> flutter emulator avd`
 
 Lancer emulateur: `flutter emulator --launch [avd]`
 
