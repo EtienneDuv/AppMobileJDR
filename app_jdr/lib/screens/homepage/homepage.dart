@@ -1,3 +1,5 @@
+import 'package:app_jdr/screens/playerInterface/playerInterface.dart';
+import 'package:app_jdr/screens/dmInterface/dmInterface.dart';
 import 'package:flutter/material.dart';
 import 'package:app_jdr/widgets/defaultAppBar.dart';
 
@@ -15,37 +17,53 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: [
               Expanded(flex: 1, child: SizedBox()),
-              Container(
-                constraints: BoxConstraints(
-                    minHeight: _imgSize,
-                    minWidth: _imgSize,
-                    maxHeight: _imgSize,
-                    maxWidth: _imgSize),
-                child: SafeArea(
-                  bottom: true,
-                  child: Column(
-                    children: [
-                      Expanded(child: Image.asset('assets/images/dm.png')),
-                      Text("Dungeon Master")
-                    ],
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DmInterface()),
+                  );
+                },
+                child: Container(
+                  constraints: BoxConstraints(
+                      minHeight: _imgSize,
+                      minWidth: _imgSize,
+                      maxHeight: _imgSize,
+                      maxWidth: _imgSize),
+                  child: SafeArea(
+                    bottom: true,
+                    child: Column(
+                      children: [
+                        Expanded(child: Image.asset('assets/images/dm.png')),
+                        Text("Dungeon Master")
+                      ],
+                    ),
                   ),
                 ),
               ),
               Expanded(flex: 1, child: SizedBox()),
-              Container(
-                constraints: BoxConstraints(
-                    minHeight: _imgSize,
-                    minWidth: _imgSize,
-                    maxHeight: _imgSize,
-                    maxWidth: _imgSize),
-                child: Column(
-                  children: [
-                    Expanded(
-                        child: Container(
-                            padding: EdgeInsets.only(bottom: 20),
-                            child: Image.asset('assets/images/dice.png'))),
-                    Text("Player")
-                  ],
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PlayerInterface()),
+                  );
+                },
+                child: Container(
+                  constraints: BoxConstraints(
+                      minHeight: _imgSize,
+                      minWidth: _imgSize,
+                      maxHeight: _imgSize,
+                      maxWidth: _imgSize),
+                  child: Column(
+                    children: [
+                      Expanded(
+                          child: Container(
+                              padding: EdgeInsets.only(bottom: 20),
+                              child: Image.asset('assets/images/dice.png'))),
+                      Text("Player")
+                    ],
+                  ),
                 ),
               ),
               Expanded(flex: 1, child: SizedBox()),

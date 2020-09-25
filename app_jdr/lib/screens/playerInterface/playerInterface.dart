@@ -6,9 +6,7 @@ class PlayerInterface extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      appBar: defaultAppBar(
-        'Player Interface',
-      ),
+      appBar: defaultAppBar('Player Interface', [], context),
     ));
   }
 }
