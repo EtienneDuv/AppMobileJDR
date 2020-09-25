@@ -16,33 +16,39 @@ class HomePage extends StatelessWidget {
           alignment: Alignment.center,
           child: Column(
             children: [
-              Expanded(flex: 1, child: SizedBox()),
-              GestureDetector(
+              Expanded(flex: 2, child: SizedBox()),
+              InkWell(
+                borderRadius: BorderRadius.all(Radius.circular(200)),
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => DmInterface()),
                   );
                 },
-                child: Container(
-                  constraints: BoxConstraints(
-                      minHeight: _imgSize,
-                      minWidth: _imgSize,
-                      maxHeight: _imgSize,
-                      maxWidth: _imgSize),
-                  child: SafeArea(
-                    bottom: true,
-                    child: Column(
-                      children: [
-                        Expanded(child: Image.asset('assets/images/dm.png')),
-                        Text("Dungeon Master")
-                      ],
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15.0),
+                  child: Container(
+                    margin: EdgeInsets.all(15),
+                    constraints: BoxConstraints(
+                        minHeight: _imgSize,
+                        minWidth: _imgSize,
+                        maxHeight: _imgSize,
+                        maxWidth: _imgSize),
+                    child: SafeArea(
+                      bottom: true,
+                      child: Column(
+                        children: [
+                          Expanded(child: Image.asset('assets/images/dm.png')),
+                          Text("Dungeon Master")
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
               Expanded(flex: 1, child: SizedBox()),
-              GestureDetector(
+              InkWell(
+                borderRadius: BorderRadius.all(Radius.circular(200)),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -50,6 +56,7 @@ class HomePage extends StatelessWidget {
                   );
                 },
                 child: Container(
+                  margin: EdgeInsets.all(15),
                   constraints: BoxConstraints(
                       minHeight: _imgSize,
                       minWidth: _imgSize,
@@ -66,7 +73,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              Expanded(flex: 1, child: SizedBox()),
+              Expanded(flex: 2, child: SizedBox()),
             ],
           ),
         ),
