@@ -7,36 +7,45 @@ class DmInterface extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
             appBar: defaultAppBar('Dm Interface', [], context),
-            body: ListView(
-              children: [
-                Center(
-                  child: Container(
-                    height: 50,
-                    width: MediaQuery.of(context).size.width * 0.70,
-                    color: Colors.black12,
-                    margin: EdgeInsets.symmetric(vertical: 20),
-                    child: Center(child: Text("Dm Interface")),
+            body: Container(
+              child: Center(
+                child: Container(
+                  child: Column(
+                    children: [
+                      Expanded(child: SizedBox()),
+                      Container(
+                        height: 50,
+                        width: MediaQuery.of(context).size.width * 0.70,
+                        color: Colors.black12,
+                        margin: EdgeInsets.only(bottom: 35),
+                        child: Center(child: Text("Dm Interface")),
+                      ),
+                      Container(
+                        height: 50,
+                        width: MediaQuery.of(context).size.width * 0.70,
+                        color: Colors.black12,
+                        margin: EdgeInsets.only(bottom: 35),
+                        child: Center(child: Text("Dm Interface")),
+                      ),
+                      Container(
+                        height: 50,
+                        width: MediaQuery.of(context).size.width * 0.70,
+                        color: Colors.black12,
+                        margin: EdgeInsets.only(bottom: 35),
+                        child: Center(child: Text("Dm Interface")),
+                      ),
+                      Container(
+                        height: 50,
+                        width: MediaQuery.of(context).size.width * 0.70,
+                        color: Colors.black12,
+                        margin: EdgeInsets.only(bottom: 35),
+                        child: Center(child: Text("Dm Interface")),
+                      ),
+                      Expanded(child: SizedBox())
+                    ],
                   ),
                 ),
-                Center(
-                  child: Container(
-                    height: 50,
-                    width: MediaQuery.of(context).size.width * 0.70,
-                    color: Colors.black12,
-                    margin: EdgeInsets.symmetric(vertical: 20),
-                    child: Center(child: Text("Dm Interface")),
-                  ),
-                ),
-                Center(
-                  child: Container(
-                    height: 50,
-                    width: MediaQuery.of(context).size.width * 0.70,
-                    color: Colors.black12,
-                    margin: EdgeInsets.symmetric(vertical: 20),
-                    child: Center(child: Text("Dm Interface")),
-                  ),
-                )
-              ],
+              ),
             )));
   }
 }
