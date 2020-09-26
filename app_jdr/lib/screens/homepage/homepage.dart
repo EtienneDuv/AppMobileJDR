@@ -12,8 +12,7 @@ class HomePage extends StatelessWidget {
       top: true,
       child: Scaffold(
         appBar: defaultAppBar('Home Page', [], context),
-        body: Container(
-          alignment: Alignment.center,
+        body: Center(
           child: Column(
             children: [
               Expanded(flex: 2, child: SizedBox()),

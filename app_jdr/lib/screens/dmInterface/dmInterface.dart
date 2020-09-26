@@ -1,4 +1,5 @@
 import 'package:app_jdr/widgets/defaultAppBar.dart';
+import 'package:app_jdr/widgets/columnOption.dart';
 import 'package:flutter/material.dart';
 
 class DmInterface extends StatelessWidget {
@@ -7,45 +8,13 @@ class DmInterface extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
             appBar: defaultAppBar('Dm Interface', [], context),
-            body: Container(
-              child: Center(
-                child: Container(
-                  child: Column(
-                    children: [
-                      Expanded(child: SizedBox()),
-                      Container(
-                        height: 50,
-                        width: MediaQuery.of(context).size.width * 0.70,
-                        color: Colors.black12,
-                        margin: EdgeInsets.only(bottom: 35),
-                        child: Center(child: Text("Dm Interface")),
-                      ),
-                      Container(
-                        height: 50,
-                        width: MediaQuery.of(context).size.width * 0.70,
-                        color: Colors.black12,
-                        margin: EdgeInsets.only(bottom: 35),
-                        child: Center(child: Text("Dm Interface")),
-                      ),
-                      Container(
-                        height: 50,
-                        width: MediaQuery.of(context).size.width * 0.70,
-                        color: Colors.black12,
-                        margin: EdgeInsets.only(bottom: 35),
-                        child: Center(child: Text("Dm Interface")),
-                      ),
-                      Container(
-                        height: 50,
-                        width: MediaQuery.of(context).size.width * 0.70,
-                        color: Colors.black12,
-                        margin: EdgeInsets.only(bottom: 35),
-                        child: Center(child: Text("Dm Interface")),
-                      ),
-                      Expanded(child: SizedBox())
-                    ],
-                  ),
-                ),
-              ),
+            body: Column(
+              children: [
+                Expanded(child: SizedBox()),
+                columnOption(context, Icons.folder, 'My campains', () {}),
+                columnOption(context, Icons.map, 'My maps', () {}),
+                Expanded(child: SizedBox())
+              ],
             )));
   }
 }
