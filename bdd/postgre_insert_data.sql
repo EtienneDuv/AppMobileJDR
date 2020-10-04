@@ -1,16 +1,16 @@
-INSERT INTO campagne (nom, idJeu, idMj1) VALUES
-    ('Campagne avec les potes', 1, 1),
+INSERT INTO campain (surname, idGame, idDm1) VALUES
+    ('Campain avec les potes', 1, 1),
     ('Les Terres de Naheulbeuk', 2, 2),
-    ('Campagne 1', 1, 3),
-    ('Campagne 2', 2, 2);
+    ('Campain 1', 1, 3),
+    ('Campain 2', 2, 2);
 
-INSERT INTO carte (idJoueur, nom, carte) VALUES
+INSERT INTO map (idPlayer, surname, map) VALUES
     (1, 'Mines', 'urlToMap'),
     (1, 'Donjon', 'urlToMap'),
     (2, 'Bâtiment', 'urlToMap'),
     (3, 'Endroit', 'urlToMap');
 
-INSERT INTO personnage(idJoueur, idJeu, nom, info) VALUES
+INSERT INTO character(idPlayer, idGame, surname, info) VALUES
     (1, 1, 'Kragor', '{}'),
     (1, 2, 'Gomaloth', '{}'),
     (2, 1, 'Alagaros', '{}'),

@@ -7,53 +7,53 @@ GRANT ALL ON SCHEMA public TO public;
 
 
 /* CREATE TABLES */
-CREATE TABLE joueur (
+CREATE TABLE player (
     id      SERIAL PRIMARY KEY NOT NULL,
-    nom     VARCHAR (50) NOT NULL,
-    prenom  VARCHAR (50) NOT NULL,
+    surname     VARCHAR (50) NOT NULL,
+    name  VARCHAR (50) NOT NULL,
     mail    VARCHAR (50) UNIQUE NOT NULL
 );
-CREATE TABLE jeu(
+CREATE TABLE game(
     id              SERIAL PRIMARY KEY NOT NULL,
-    nom             VARCHAR (50),
-    infoPersonnage  JSON NOT NULL
+    surname             VARCHAR (50),
+    characterData  JSON NOT NULL
 
 );
-CREATE TABLE carte (
+CREATE TABLE map (
     id          SERIAL PRIMARY KEY NOT NULL,
-    idJoueur    INTEGER REFERENCES joueur(id),
-    nom         VARCHAR (50) NOT NULL,
-    carte       VARCHAR (500)  /*LIEN VERS L'IMAGE*/
+    idPlayer    INTEGER REFERENCES player(id),
+    surname         VARCHAR (50) NOT NULL,
+    map       VARCHAR (500)  /*LIEN VERS L'IMAGE*/
 );
-CREATE TABLE personnage (
+CREATE TABLE character (
     id          SERIAL PRIMARY KEY NOT NULL,
-    idJoueur    INTEGER REFERENCES joueur(id),
-    idJeu       INTEGER REFERENCES jeu(id),
-    nom         VARCHAR (50) NOT NULL,
+    idPlayer    INTEGER REFERENCES player(id),
+    idGame       INTEGER REFERENCES game(id),
+    surname         VARCHAR (50) NOT NULL,
     info        JSON NOT NULL
 );
-CREATE TABLE campagne (
+CREATE TABLE campain (
     id      SERIAL PRIMARY KEY NOT NULL,
-    nom     VARCHAR (50),
-    idJeu     INTEGER REFERENCES jeu(id),
-    idMj1   INTEGER REFERENCES joueur(id) NOT NULL,
-    idMj2   INTEGER REFERENCES joueur(id),
-    idMj3   INTEGER REFERENCES joueur(id)
+    surname     VARCHAR (50),
+    idGame     INTEGER REFERENCES game(id),
+    idDm1   INTEGER REFERENCES player(id) NOT NULL,
+    idDm2   INTEGER REFERENCES player(id),
+    idDm3   INTEGER REFERENCES player(id)
 );  
 CREATE TABLE scenario (
     id          SERIAL PRIMARY KEY NOT NULL,
-    idCampagne  INTEGER REFERENCES campagne(id),
-    "content"   VARCHAR (5000)
+    idCampain  INTEGER REFERENCES campain(id),
+    content   VARCHAR (5000)
 );
 CREATE TABLE log (
     id          SERIAL PRIMARY KEY NOT NULL,
-    idCampagne  INTEGER REFERENCES campagne(id),
-    "content"   VARCHAR (50000)
-);
+    idCampain  INTEGER REFERENCES campain(id),
+    content   VARCHAR (50000)
+);	
 CREATE TABLE note (
     id          SERIAL PRIMARY KEY NOT NULL,
-    idCampagne  INTEGER REFERENCES campagne(id),
-    "content"   VARCHAR (5000)
+    idCampain  INTEGER REFERENCES campain(id),
+    content   VARCHAR (5000)
 );
 
 
@@ -63,11 +63,11 @@ CREATE OR REPLACE FUNCTION generate_log_note_scenario()
     RETURNS trigger
     as $$
     BEGIN
-        INSERT INTO log(idCampagne, content)
+        INSERT INTO log(idCampain, content)
             VALUES (new.id, '{}');
-        INSERT INTO note(idCampagne, content)
+        INSERT INTO note(idCampain, content)
             VALUES (new.id, '{}');
-        INSERT INTO scenario(idCampagne, content)
+        INSERT INTO scenario(idCampain, content)
             VALUES (new.id, '{}');
         RETURN NULL;
     END;
@@ -77,6 +77,6 @@ CREATE OR REPLACE FUNCTION generate_log_note_scenario()
 
 /* TRIGGERS */
 CREATE TRIGGER generate_log_note_scenario
-    AFTER INSERT ON campagne
+    AFTER INSERT ON campain
     FOR EACH ROW 
     EXECUTE PROCEDURE generate_log_note_scenario()
